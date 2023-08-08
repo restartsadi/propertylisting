@@ -1,0 +1,32 @@
+import { Button } from "@mui/material";
+import React, { useState } from "react";
+import App from "../../App";
+
+ 
+function Property(){
+    const [property, setProperty] = useState([]);
+    const [newProperty, setNewProperty] = useState('');
+
+    const handleChange = (event) => {
+        setNewProperty(event.target.value);
+    };
+    const addProperty = () => {
+        const newPropertyList = [...property , newProperty];
+        setProperty(newProperty);
+    };
+    return(
+        <div className="App">
+            <div className="addProperty">
+                <input onChange={ handleChange }/>
+                <button > Add Property </button>
+            </div>
+            <div className="list">
+                {newProperty.map((property) => {
+                    return<h1>{ property }</h1>
+                })}
+            </div>
+        </div> 
+
+    );
+}
+export default Property;
